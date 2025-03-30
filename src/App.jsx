@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
-import Dashboard from './pages/dashboard';
-import Chat from './pages/chat';
-import Reports from './pages/Reports';
-import Settings from './pages/Settings';
+import Dashboard from './pages/dashboard.jsx';
+import Chat from './pages/chat.jsx';
+import Reports from './pages/Reports.jsx';
+import Settings from './pages/Settings.jsx';
 import { Menu } from 'lucide-react';
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
         </main>
       </div>
     </Router>
-  );
+  )
 }
 
 export default App;
