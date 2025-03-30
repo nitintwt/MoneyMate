@@ -7,6 +7,8 @@ import Reports from './pages/Reports.jsx';
 import Settings from './pages/Settings.jsx';
 import Landing from './pages/Landing.jsx';
 import { Menu } from 'lucide-react';
+import Login from './pages/Login.jsx';
+import Signup from './pages/Signup.jsx';
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -36,6 +38,8 @@ function App() {
                   <Route path="/chat" element={<Chat />} />
                   <Route path="/reports" element={<Reports />} />
                   <Route path="/settings" element={<Settings />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/signup" element={<Signup />} />
                 </Routes>
               </main>
             </div>
