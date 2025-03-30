@@ -3,10 +3,9 @@ import { Send } from 'lucide-react';
 
 function Chat() {
   const [message, setMessage] = useState('');
-  //w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center
 
   return (
-    <div className="h-[calc(100vh-4rem)] flex flex-col">
+    <div className="h-[calc(100vh-6rem)] lg:h-[calc(100vh-4rem)] flex flex-col">
       <div className="flex-1 overflow-y-auto mb-4">
         <div className="bg-[#1A1A1A] p-4 rounded-lg mb-4 max-w-2xl">
           <div className="flex items-start gap-3">

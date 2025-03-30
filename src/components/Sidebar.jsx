@@ -1,17 +1,27 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, MessageSquare, BarChart2, Settings, Plus } from 'lucide-react';
+import { LayoutDashboard, MessageSquare, BarChart2, Settings, Plus, X } from 'lucide-react';
 
-function Sidebar() {
+
+function Sidebar({ onClose }) {
   return (
-    <div className="w-64 bg-[#1A1A1A] text-white p-4 flex flex-col">
-      <div className="flex items-center gap-2 mb-8">
-        <h1 className="text-xl font-bold">MoneyMate</h1>
+    <div className="w-[280px] bg-[#1A1A1A] text-white p-4 flex flex-col h-screen">
+      <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+            <span className="text-lg font-bold">E</span>
+          </div>
+          <h1 className="text-xl font-bold">MoneyMate</h1>
+        </div>
+        <button onClick={onClose} className="lg:hidden text-gray-400 hover:text-white">
+          <X size={24} />
+        </button>
       </div>
 
       <nav className="flex-1">
         <NavLink
           to="/"
+          onClick={onClose}
           className={({ isActive }) =>
             `flex items-center gap-3 p-3 rounded-lg mb-2 ${
               isActive ? 'bg-blue-600' : 'hover:bg-[#2A2A2A]'
@@ -24,6 +34,7 @@ function Sidebar() {
 
         <NavLink
           to="/chat"
+          onClick={onClose}
           className={({ isActive }) =>
             `flex items-center gap-3 p-3 rounded-lg mb-2 ${
               isActive ? 'bg-blue-600' : 'hover:bg-[#2A2A2A]'
@@ -36,6 +47,7 @@ function Sidebar() {
 
         <NavLink
           to="/reports"
+          onClick={onClose}
           className={({ isActive }) =>
             `flex items-center gap-3 p-3 rounded-lg mb-2 ${
               isActive ? 'bg-blue-600' : 'hover:bg-[#2A2A2A]'
@@ -48,6 +60,7 @@ function Sidebar() {
 
         <NavLink
           to="/settings"
+          onClick={onClose}
           className={({ isActive }) =>
             `flex items-center gap-3 p-3 rounded-lg mb-2 ${
               isActive ? 'bg-blue-600' : 'hover:bg-[#2A2A2A]'

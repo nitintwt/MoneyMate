@@ -5,12 +5,12 @@ function Settings() {
     <div>
       <h1 className="text-3xl font-bold text-white mb-8">Settings</h1>
 
-      <div className="max-w-2xl">
-        <div className="bg-[#1A1A1A] p-6 rounded-lg mb-8">
+      <div className="w-full max-w-2xl">
+        <div className="bg-[#1A1A1A] p-4 sm:p-6 rounded-lg mb-8">
           <h2 className="text-xl font-semibold text-white mb-2">Profile</h2>
           <p className="text-gray-400 mb-6">Manage your account settings and preferences.</p>
 
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
             <div className="w-16 h-16 bg-gray-600 rounded-full"></div>
             <div>
               <h3 className="text-white font-medium">Nitin Singh</h3>
@@ -43,11 +43,11 @@ function Settings() {
           </div>
         </div>
 
-        <div className="bg-[#1A1A1A] p-6 rounded-lg">
+        <div className="bg-[#1A1A1A] p-4 sm:p-6 rounded-lg">
           <h2 className="text-xl font-semibold text-white mb-2">Preferences</h2>
           <p className="text-gray-400 mb-6">Customize your expense tracking experience.</p>
 
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <h3 className="text-white font-medium">Dark Mode</h3>
               <p className="text-gray-400">Toggle between light and dark themes.</p>

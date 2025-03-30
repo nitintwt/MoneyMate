@@ -36,7 +36,7 @@ function Dashboard() {
       
       <section className="mb-12">
         <h2 className="text-xl font-semibold text-white mb-6">Categories</h2>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {categories.map((category) => (
             <div key={category.name} className="bg-[#1A1A1A] p-6 rounded-lg">
               <div className="flex items-center gap-3 mb-4">
@@ -50,9 +50,9 @@ function Dashboard() {
       </section>
 
       <section>
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
           <h2 className="text-xl font-semibold text-white">Expenses</h2>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <button className="bg-[#1A1A1A] text-white px-4 py-2 rounded-lg">Daily</button>
             <button className="text-gray-400 px-4 py-2">Monthly</button>
             <button className="text-gray-400 px-4 py-2">Calendar</button>
@@ -68,7 +68,7 @@ function Dashboard() {
             </div>
             
             {day.items.map((expense) => (
-              <div key={expense.name} className="bg-[#1A1A1A] p-4 rounded-lg mb-2 flex items-center justify-between">
+              <div key={expense.name} className="bg-[#1A1A1A] p-4 rounded-lg mb-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 bg-blue-600/10 rounded-lg flex items-center justify-center">
                     <Utensils className="text-blue-600" size={20} />
