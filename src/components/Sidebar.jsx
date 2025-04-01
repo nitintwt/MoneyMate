@@ -20,7 +20,7 @@ function Sidebar({ onClose }) {
 
       <nav className="flex-1">
         <NavLink
-          to="/"
+          to="/dashboard"
           onClick={onClose}
           className={({ isActive }) =>
             `flex items-center gap-3 p-3 rounded-lg mb-2 ${

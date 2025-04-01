@@ -9,6 +9,7 @@ import Landing from './pages/Landing.jsx';
 import { Menu } from 'lucide-react';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
+import AuthLayout from './components/AuthLayout.jsx';
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -16,7 +17,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Landing />} />
+          <Route path="/" element={<Landing />} />
+          <Route path='/signup' element={<Signup/>} />
+          <Route path='/login' element={<Login/>} />
         <Route
           path="/*"
           element={
@@ -33,14 +36,14 @@ function App() {
               </div>
               
               <main className="flex-1 p-4 lg:p-8 pt-20 lg:pt-8">
-                <Routes>
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/chat" element={<Chat />} />
-                  <Route path="/reports" element={<Reports />} />
-                  <Route path="/settings" element={<Settings />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/signup" element={<Signup />} />
-                </Routes>
+                <AuthLayout>
+                  <Routes>
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/chat" element={<Chat />} />
+                    <Route path="/reports" element={<Reports />} />
+                    <Route path="/settings" element={<Settings />} />
+                  </Routes>
+                </AuthLayout>
               </main>
             </div>
           }

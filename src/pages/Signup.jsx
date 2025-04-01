@@ -5,16 +5,19 @@ import {Button, ButtonGroup} from "@heroui/button";
 import axios from 'axios';
 import {Card, CardHeader, CardBody, CardFooter} from "@heroui/card";
 import {Input} from "@heroui/input";
+import { useEffect } from "react"
+import { useCookies } from "react-cookie"
 
 export default function Signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate= useNavigate()
+  const [cookies] = useCookies()
 
   const handleSubmit = async ()=>{
     try {
-      const register = await axios.post(`${import.meta.env.VITE_AWS_AUTH_API}/api/v1/auth/register` , {
+      const register = await axios.post(`/api/v1/auth/register` , {
         name:name,
         email:email,
         password:password
@@ -22,11 +25,17 @@ export default function Signup() {
       toast.success("User registered successfully")
       setTimeout(()=>{
         navigate("/login")
-      }, 1000)
+      }, 2000)
     } catch (error) {
       toast.error(error?.response?.data?.message)
     }
   }
+  
+  useEffect(() => {
+    if (cookies?.userData?._id) {
+      navigate("/dashboard")
+    }
+  }, [cookies, navigate])
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
@@ -43,7 +52,7 @@ export default function Signup() {
             <Input 
               id="name" 
               radius='sm'
-              variant='bordered'
+              variant='flat'
               required 
               className="bg-gray-900 border-gray-700 text-white placeholder-gray-500"
               value={name}

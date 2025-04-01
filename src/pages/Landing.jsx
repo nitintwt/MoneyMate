@@ -16,8 +16,20 @@ import {
   Bell,
   Smartphone
 } from 'lucide-react';
+import { useEffect } from "react"
+import { useCookies } from "react-cookie"
+import {NavLink, useNavigate } from "react-router-dom"
 
 function Landing() {
+  const [cookies] = useCookies()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (cookies?.userData?._id) {
+      navigate("/dashboard")
+    }
+  }, [cookies, navigate])
+
   return (
     <div className="min-h-screen bg-[#121212] text-white">
       {/* Navigation */}
@@ -36,7 +48,7 @@ function Landing() {
               <a href="#pricing" className="hover:text-blue-500">Pricing</a>
               <a href="#faq" className="hover:text-blue-500">FAQ</a>
               <Link 
-                to="/"
+                to="/signup"
                 className="bg-blue-600 px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Get Started
@@ -59,7 +71,7 @@ function Landing() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                to="/"
+                to="/signup"
                 className="bg-blue-600 px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors w-full sm:w-auto flex items-center justify-center gap-2"
               >
                 Get Started Free
@@ -205,7 +217,7 @@ function Landing() {
                 </li>
               </ul>
               <Link
-                to="/"
+                to="/signup"
                 className="block w-full bg-blue-600 text-center px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Get Started
@@ -243,7 +255,7 @@ function Landing() {
                 </li>
               </ul>
               <Link
-                to="/"
+                to="/signup"
                 className="block w-full bg-white text-blue-600 text-center px-6 py-2 rounded-lg hover:bg-gray-100 transition-colors"
               >
                 Get Started
@@ -341,7 +353,7 @@ function Landing() {
               Join thousands of users who are taking control of their finances with MoneyMate.
             </p>
             <Link
-              to="/"
+              to="/signup"
               className="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors inline-flex items-center gap-2"
             >
               Get Started Free
@@ -358,7 +370,7 @@ function Landing() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                  <span className="text-lg font-bold">E</span>
+                  <span className="text-lg font-bold">M</span>
                 </div>
                 <span className="text-xl font-bold">MoneyMate</span>
               </div>

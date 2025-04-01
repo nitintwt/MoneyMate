@@ -17,7 +17,7 @@ export default function Login() {
 
   const handleSubmit = async ()=>{
     try {
-      const login = await axios.post(`${import.meta.env.VITE_AWS_AUTH_API}/api/v1/auth/login` , {
+      const login = await axios.post(`/api/v1/auth/login` , {
         email:email,
         password:password
       })
@@ -25,11 +25,18 @@ export default function Login() {
       toast.success("Login successfull")
       setTimeout(()=>{
         navigate("/dashboard")
-      }, 1000)
+      }, 2000)
     } catch (error) {
       toast.error(error?.response?.data?.message)
     }
   }
+
+  useEffect(() => {
+    if (cookies?.userData?._id) {
+      navigate("/dashboard")
+    }
+  }, [cookies, navigate])
+  
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
