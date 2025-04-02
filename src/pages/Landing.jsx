@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import {
   BarChart3,
   Bell,
@@ -13,8 +12,20 @@ import {
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { useEffect } from "react"
+import { useCookies } from "react-cookie"
+import { Link, NavLink, useNavigate } from "react-router-dom"
 
 export default function LandingPage() {
+  const [cookies] = useCookies()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (cookies?.userData?._id) {
+      navigate("/dashboard")
+    }
+  }, [cookies, navigate])
+
   return (
     <div className="flex min-h-screen flex-col">
       {/* Header */}
