@@ -21,7 +21,7 @@ function Chat() {
     setMessage('');
 
     try {
-      const response = await axios.post("/api/v1/user/addExpense", {
+      const response = await axios.post(`${import.meta.env.VITE_AWS_API}/api/v1/user/addExpense`, {
         userText: message,
         userId: cookies[0].userData._id
       });

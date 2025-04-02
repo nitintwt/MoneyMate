@@ -17,7 +17,7 @@ export default function Signup() {
 
   const handleSubmit = async ()=>{
     try {
-      const register = await axios.post(`/api/v1/auth/register` , {
+      const register = await axios.post(`${import.meta.env.VITE_AWS_API}/api/v1/auth/register` , {
         name:name,
         email:email,
         password:password

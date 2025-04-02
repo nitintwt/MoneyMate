@@ -42,7 +42,7 @@ export default function Premium() {
       const handleStart = async (id) => {
         try {
           // Create order
-          const order = await axios.post(`/api/v1/payment/order`, {subscriptionId: id});
+          const order = await axios.post(`${import.meta.env.VITE_AWS_API}/api/v1/payment/order`, {subscriptionId: id});
           console.log(order)
           const paymentObject = new window.Razorpay({
             key: import.meta.env.VITE_RAZORPAY_KEY_ID,
@@ -50,7 +50,7 @@ export default function Premium() {
             ...order.data.data,
             handler: async function (response) {
               try {
-                const verify = await axios.post(`/api/v1/payment/verify`, {
+                const verify = await axios.post(`${import.meta.env.VITE_AWS_API}/api/v1/payment/verify`, {
                   orderId: response.razorpay_order_id,
                   paymentId: response.razorpay_payment_id,
                   signature: response.razorpay_signature,

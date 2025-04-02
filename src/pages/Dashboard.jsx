@@ -22,7 +22,7 @@ function Dashboard() {
   useEffect(() => {
     const fetchExpenses = async () => {
       try {
-        const response = await axios.get(`/api/v1/user/allExpense?userId=${cookies[0].userData._id}`);
+        const response = await axios.get(`${import.meta.env.VITE_AWS_API}/api/v1/user/allExpense?userId=${cookies[0].userData._id}`);
         const expensesData = response.data.data.expenses;
         console.log("response expenses", expensesData);
         setExpenses(expensesData);
@@ -56,7 +56,7 @@ function Dashboard() {
                 <category.icon className="text-blue-600" size={24} />
                 <span className="text-white">{category.name}</span>
               </div>
-              <p className="text-2xl font-bold text-white">${category.amount.toFixed(2)}</p>
+              <p className="text-2xl font-bold text-white">₹{category.amount.toFixed(2)}</p>
             </div>
           ))}
         </div>
@@ -70,7 +70,7 @@ function Dashboard() {
                 <h4 className="text-white font-medium">{expense.description}</h4>
                 <p className="text-gray-400">{expense.category} - {new Date(expense.date).toLocaleDateString()}</p>
               </div>
-              <p className="text-white font-medium">${parseFloat(expense.amount).toFixed(2)}</p>
+              <p className="text-white font-medium">₹{parseFloat(expense.amount).toFixed(2)}</p>
             </div>
           </div>
         ))}

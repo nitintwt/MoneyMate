@@ -18,7 +18,7 @@ export const SubscriptionCard= memo(({ subscription}) => {
 
   const handleStartNotification = async (id)=>{
     try {
-      const handleStart = await axios.put(`/api/v1/subscription/startNotification`, {
+      const handleStart = await axios.put(`${import.meta.env.VITE_AWS_API}/api/v1/subscription/startNotification`, {
         subscriptionId:id
       })
       setisNotify(true)
@@ -31,7 +31,7 @@ export const SubscriptionCard= memo(({ subscription}) => {
   const handleStopNotification = async (id)=>{
     toast.error("Notification feature is under development.");
     try {
-      const stop = await axios.put(`/api/v1/subscription/stopNotification`, {
+      const stop = await axios.put(`${import.meta.env.VITE_AWS_API}/api/v1/subscription/stopNotification`, {
         subscriptionId:id
       })
       setisNotify(false)
@@ -43,7 +43,7 @@ export const SubscriptionCard= memo(({ subscription}) => {
 
   const handleDelete = async (id)=>{
     try {
-      await axios.delete(`/api/v1/subscription/subscriptiondel?userId=${cookies.userData._id}&&subscriptionId=${id}`)
+      await axios.delete(`${import.meta.env.VITE_AWS_API}/api/v1/subscription/subscriptiondel?userId=${cookies.userData._id}&&subscriptionId=${id}`)
       setIsDeleted(true)
     } catch (error) {
       toast.success("Deleted Successfully")
