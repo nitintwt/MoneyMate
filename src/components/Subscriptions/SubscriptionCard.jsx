@@ -18,7 +18,7 @@ export const SubscriptionCard= memo(({ subscription}) => {
 
   const handleStartNotification = async (id)=>{
     try {
-      const handleStart = await axios.put(`/api/v1/user/startNotification`, {
+      const handleStart = await axios.put(`/api/v1/subscription/startNotification`, {
         subscriptionId:id
       })
       setisNotify(true)
@@ -31,7 +31,7 @@ export const SubscriptionCard= memo(({ subscription}) => {
   const handleStopNotification = async (id)=>{
     toast.error("Notification feature is under development.");
     try {
-      const stop = await axios.put(`/api/v1/user/stopNotification`, {
+      const stop = await axios.put(`/api/v1/subscription/stopNotification`, {
         subscriptionId:id
       })
       setisNotify(false)
@@ -43,7 +43,7 @@ export const SubscriptionCard= memo(({ subscription}) => {
 
   const handleDelete = async (id)=>{
     try {
-      await axios.delete(`/api/v1/user/subscription?userId=${cookies.userData.id}&&subscriptionId=${id}`)
+      await axios.delete(`/api/v1/subscription/subscriptiondel?userId=${cookies.userData._id}&&subscriptionId=${id}`)
       setIsDeleted(true)
     } catch (error) {
       toast.success("Deleted Successfully")
@@ -52,11 +52,11 @@ export const SubscriptionCard= memo(({ subscription}) => {
 
   return (
     <>
-    <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border-l-4 border-orange-500">
+    <div className="bg-[#1A1A1A] rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border-l-4 border-orange-500">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center space-x-4">
           <div>
-            <h3 className="text-lg font-semibold text-gray-900">
+            <h3 className="text-lg font-semibold text-white">
               {subscription.service}
             </h3>
             <div className="flex items-center space-x-2 mt-1">
@@ -71,20 +71,20 @@ export const SubscriptionCard= memo(({ subscription}) => {
           {isNotify ? (
             <button
               className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-              onClick={()=>handleStopNotification(subscription?.id)}
+              onClick={()=>handleStopNotification(subscription?._id)}
             >
                 <Bell className="w-5 h-5 text-gray-400" />
             </button>
           ):(
             <button
             className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-            onClick={()=>handleStartNotification(subscription?.id)}
+            onClick={()=>handleStartNotification(subscription?._id)}
           >
             <BellOff className="w-5 h-5 text-blue-500" />
           </button>
           )}
           <button
-            onClick={()=> handleDelete(subscription?.id)}
+            onClick={()=> handleDelete(subscription?._id)}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors"
             title="Delete subscription"
           >

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import {Button, ButtonGroup} from "@heroui/button";
 import { LayoutDashboard, MessageSquare, BarChart2, Settings, Plus, X } from 'lucide-react';
 
@@ -46,7 +46,7 @@ function Sidebar({ onClose }) {
         </NavLink>
 
         <NavLink
-          to="/reports"
+          to="/subscription"
           onClick={onClose}
           className={({ isActive }) =>
             `flex items-center gap-3 p-3 rounded-lg mb-2 ${
@@ -55,7 +55,7 @@ function Sidebar({ onClose }) {
           }
         >
           <BarChart2 size={20} />
-          <span>Reports</span>
+          <span>Subscriptions</span>
         </NavLink>
 
         <NavLink
@@ -73,7 +73,9 @@ function Sidebar({ onClose }) {
       </nav>
       <div className="p-4 bg-gradient-to-b from-black to-blue-950 rounded-lg shadow-lg text-center mb-4 mx-2">
         <h3 className="text-lg font-bold text-white pb-4">Upgrade to Premium</h3>
-        <Button size="sm" className="bg-blue-600 hover:bg-blue-700 md:flex-1 text-white rounded">Explore Plans</Button>
+        <Button size="sm" className="bg-blue-600 hover:bg-blue-700 md:flex-1 text-white rounded">
+          <Link to='/premium'>Explore Plans</Link>
+        </Button>
       </div>
     </div>
   );
