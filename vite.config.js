@@ -10,9 +10,7 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   server:{
-    proxy:{
-      "/api/v1/":"http://localhost:3000"
-    }
+
   },
   resolve: {
     alias: {
