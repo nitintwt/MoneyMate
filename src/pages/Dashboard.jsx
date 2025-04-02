@@ -41,7 +41,7 @@ function Dashboard() {
     };
 
     fetchExpenses();
-  }, [cookies])
+  }, [])
 
   return (
     <div>

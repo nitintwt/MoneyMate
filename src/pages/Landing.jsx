@@ -18,7 +18,7 @@ export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-black pl-5 pr-5">
+      <header className="sticky top-0 z-50 w-full  bg-black pl-5 pr-5">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <CreditCard className="h-6 w-6 text-blue-600" />

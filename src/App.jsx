@@ -10,6 +10,8 @@ import { Menu } from 'lucide-react';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
 import AuthLayout from './components/AuthLayout.jsx';
+import Premium from './pages/Premium.jsx';
+import Subscription from './pages/Subscription.jsx';
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -20,6 +22,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path='/signup' element={<Signup/>} />
           <Route path='/login' element={<Login/>} />
+          <Route path='/premium' element={<Premium/>}/>
         <Route
           path="/*"
           element={
@@ -42,6 +45,7 @@ function App() {
                     <Route path="/chat" element={<Chat />} />
                     <Route path="/reports" element={<Reports />} />
                     <Route path="/settings" element={<Settings />} />
+                    <Route path="/subscription" element={<Subscription />} />
                   </Routes>
                 </AuthLayout>
               </main>

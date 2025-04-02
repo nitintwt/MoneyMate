@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import {Button, ButtonGroup} from "@heroui/button";
 import { LayoutDashboard, MessageSquare, BarChart2, Settings, Plus, X } from 'lucide-react';
-
 
 function Sidebar({ onClose }) {
   return (
@@ -71,11 +71,10 @@ function Sidebar({ onClose }) {
           <span>Settings</span>
         </NavLink>
       </nav>
-
-      <button className="w-full bg-blue-600 text-white p-3 rounded-lg flex items-center justify-center gap-2">
-        <Plus size={20} />
-        <span>New Expense</span>
-      </button>
+      <div className="p-4 bg-gradient-to-b from-black to-blue-950 rounded-lg shadow-lg text-center mb-4 mx-2">
+        <h3 className="text-lg font-bold text-white pb-4">Upgrade to Premium</h3>
+        <Button size="sm" className="bg-blue-600 hover:bg-blue-700 md:flex-1 text-white rounded">Explore Plans</Button>
+      </div>
     </div>
   );
 }
